@@ -1,19 +1,20 @@
 const mongoose = require('mongoose');
-
 const profileSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true
-  },
-  lastName: {
-    type: String,
-    required: true
-  },
-  age: {
-    type: Number,
-    required: true
+  firstname:{
+    type:String,
+    required:true
+
   }
-});
+  ,lastname:{
+    type:String,
+    required:true
+  },
+  age:{
+    type:Number,
+    min:1
+  }
+  
+})
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -38,8 +39,8 @@ const userSchema = new mongoose.Schema({
   lastLogin: {
     type: Date
   }
-}, {
-  timestamps: true
-});
+
+})
+;
 
 module.exports = mongoose.model('User', userSchema);
